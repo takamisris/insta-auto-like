@@ -13,7 +13,7 @@ import datetime
 
 MAIN_URL = "https://www.instagram.com/"
 TAG_SEARCH_URL = MAIN_URL + "explore/tags/{}/"
-TAG_LIST = ['lol', 'vancouver', 'likeforfollow']
+TAG_LIST = ['sample']
 
 def main():
     try:
@@ -24,7 +24,7 @@ def main():
         option.add_argument('--headless')
         option.add_argument(
         "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36")
-        driver = webdriver.Chrome('/Users/misris/Program/python/greenteaj/chromedriver', options=option)
+        driver = webdriver.Chrome('chromedriver', options=option)
         # driver = webdriver.Chrome('/Users/misris/Program/python/greenteaj/chromedriver')
         driver.set_window_size('1200', '1000')
         # driver = webdriver.Chrome('/Users/misris/Program/python/greenteaj/chromedriver')
@@ -73,7 +73,7 @@ def main():
                         print('hit like! ' + href)
 
                 #done
-                f = open('/Users/misris/Program/python/greenteaj/cron.log', 'a')
+                f = open('cron.log', 'a')
                 f.write('success: ' + tag + ' ' + datetime.datetime.now().strftime("%m/%d/%Y %H:%M:%S") + '\n')
                 f.close()
             print('wait for 15min...')
@@ -82,7 +82,7 @@ def main():
         print('done')
         driver.close()
     except:
-        f = open('/Users/misris/Program/python/greenteaj/cron.log', 'a')
+        f = open('cron.log', 'a')
         f.write('fail: ' + tag + ' ' + datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S") + '\n')
         f.close()
         driver.close()
