@@ -18,16 +18,14 @@ TAG_LIST = ['sample']
 def main():
     try:
         username = sys.argv[1]
-        # tag = sys.argv[2]
 
         option = Options()
         option.add_argument('--headless')
         option.add_argument(
         "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36")
         driver = webdriver.Chrome('chromedriver', options=option)
-        # driver = webdriver.Chrome('/Users/misris/Program/python/greenteaj/chromedriver')
+        # driver = webdriver.Chrome('chromedriver')
         driver.set_window_size('1200', '1000')
-        # driver = webdriver.Chrome('/Users/misris/Program/python/greenteaj/chromedriver')
         driver.get('https://www.instagram.com/accounts/login/?source=auth_switcher')
         print('open instagram...')
         time.sleep(10)
